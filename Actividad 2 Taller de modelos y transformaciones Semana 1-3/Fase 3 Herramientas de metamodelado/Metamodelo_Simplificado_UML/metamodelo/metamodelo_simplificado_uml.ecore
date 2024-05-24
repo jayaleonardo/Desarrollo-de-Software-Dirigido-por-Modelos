@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="MetamodeloSimplificadoUML" nsURI="http://metamodelo_simplificado_uml.ecore"
+    nsPrefix="MetamodeloSimplificadoUML">
+  <eClassifiers xsi:type="ecore:EClass" name="Package">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="privitidatetype" lowerBound="1"
+        upperBound="-1" eType="#//PrimitiveDateType" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Class" lowerBound="1" upperBound="-1"
+        eType="#//Class" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PrimitiveDateType" eSuperTypes="#//Clafier"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Class" eSuperTypes="#//Clafier">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="isPersiten" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="atribute" lowerBound="1"
+        upperBound="-1" eType="#//Atribute" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Atribute">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Type" lowerBound="1" eType="#//Clafier"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Clafier">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+</ecore:EPackage>

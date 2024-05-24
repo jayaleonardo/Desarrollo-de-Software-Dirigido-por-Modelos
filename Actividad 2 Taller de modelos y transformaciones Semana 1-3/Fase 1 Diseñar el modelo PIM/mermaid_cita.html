@@ -1,0 +1,103 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Diagramas a partir de texto citas psicologíca</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <script>
+        mermaid.initialize({ 
+            startOnLoad: true 
+        });
+    </script>
+</head>
+
+<body>
+
+    <div class="row">
+        <div class="col-md-10 m-auto my-5">
+            <div class="card">
+                <div class="card-header">
+                    <strong>Diagrama de clases con Mermaid (PIM)</strong>
+                </div>
+                <div class="card-body">
+                    <p>
+                        Ejemplo librería <a target="_blank" href="https://mermaid.js.org/syntax/classDiagram.html">Mermaid</a> 
+                        para crear diagramas a partir de texto y su
+                        <a target="_blank" href="https://mermaid.live/edit#pako:eNptkc1OwzAMx18lyomJ9QWqXRBjEoeddkORkJuYzmo-Rj40wei7k3ZtmDpySOyf87ed-MKlU8hrLjWEsCVoPRhhWV7X_cmSAc1q9kg2MmhxiQ_Rk21Zi1ahvw0OkrAHk82H1SJgIOIMx8psm2R3uQJWkjYI3bPTzpdAOJOZhdn9TCC72e9v8-0oHEu-aug90De-2h1iLFiCfYH4r_4NGw9_DTXOaUbh_UxaFeiTXWinb9n8VNX4ons69HVPx2p8zQ16A6TyPMbSgscjGhS8zqbCD0g6Ci5sn69Ciu7wZSWvo0-45umk8qdOE5whKorO76cRD0f_CzVJmDM">
+                            Live editor
+                        </a>
+                    </p>
+                
+                    <div class="mermaid">
+                        classDiagram
+
+                            direction RL                
+         
+                            class TipoTerapia {
+                                - idTipoCita: int
+                                - nombre: String
+                                - duracion: int
+                                - costo: double
+                              }
+
+                              class Doctor {
+                                especialidad: String
+                                horarioAtencion: String                                                   
+                              }
+
+                              class Paciente {
+                                -fechaNacimiento: Date
+                            }
+
+                              class Usuario {
+                                -idUsuario: int
+                                -nombre: String
+                                -apellido: String
+                                -rol: Rol
+                                -correoElectronico: String
+                                -contrasena: String
+                                -estado: String
+                                -tipoUsuario: String
+                            }
+
+                              class Rol {
+                                idRol: int
+                                nombre: String
+                              }
+
+                              class Permiso {
+                                idPermiso: int
+                                nombre: String
+                              }
+
+                              class Cita {
+                                - idCita: int
+                                - fechaHoraCita: Date
+                                - paciente: Usuario
+                                - doctor: Usuario
+                                - tipoTerapia: TipoTerapia
+                                - estadoPago: String
+                                - tipoCita: String
+                            }
+
+                              Rol "1" .. "1..*" Permiso: posee 
+                              Usuario "1..*" .. "1" Rol: posee
+                              Usuario "1" .. "1..*" Cita: Registra 
+                              Cita .. Paciente
+                              Cita .. Doctor
+                              Cita .. TipoTerapia
+                              Usuario <|-- Doctor
+                              Usuario <|-- Paciente
+                
+                    </div>
+                </div>
+            </div> 
+        </div>
+    </div>   
+   
+
+</body>
+
+</html>
